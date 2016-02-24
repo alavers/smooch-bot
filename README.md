@@ -12,4 +12,4 @@ A bot consists of three core components:
 
 `SmoochApiBot` and `SmoochApiStore` allow you to run your chat bot on top of [smooch.io](http://smooch.io). That means you can run your bot over SMS, Web, iOS, Android, you name it! You can also hook your conversations up to back end channels such as Slack and HipChat so that a human jump in the conversation whenever you like.
 
-This project comes equipped with a few sample implementations under `/examples`. Go check them out!
+To see this bot in action, check out the examples here: https://github.com/smooch/smooch-bot-example
