@@ -1,6 +1,6 @@
 {
   "name": "smooch-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build your own chat bot on top of smooch.io",
   "author": "Andrew Lavers <alavers@system42.net>",
   "main": "index.js",
