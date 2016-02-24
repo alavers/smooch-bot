@@ -24,39 +24,31 @@ This sample is a simple express app that uses the Smooch web widget to provie th
 
 To get it running, there's a little bit of legwork.
 
-1. First, sign up for a free account at [smooch.io](https://smooch.io/signup)
+1. First, sign up for a free account at [smooch.io](https://app.smooch.io/signup)
 
-2. With a new Smooch app created, under settings, get your app token and save it to an enviornment variable, like so:
+1. With a new Smooch app created, under settings, get your app token and save it to an enviornment variable, like so:
 
-```
-export SMOOCH_APP_TOKEN=yourAppToken
-```
+        export SMOOCH_APP_TOKEN=yourAppToken
 
-3. Next, generate a Smooch API key, and use the API keyId + secret pair to generate a JWT. This JWT is what your express app will use to talk to the Smooch API. You can use the provided `jwt.js` script to do this:
+1. Next, generate a Smooch API key, and use the API keyId + secret pair to generate a JWT. This JWT is what your express app will use to talk to the Smooch API. You can use the provided `jwt.js` script to do this:
 
-```
-$ export SMOOCH_JWT=`node jwt.js yourKeyId yourSecret`
-```
+        $ export SMOOCH_JWT=`node jwt.js yourKeyId yourSecret`
 
-The express app will make use of these `SMOOCH_APP_TOKEN` and `SMOOCH_JWT` environment variables.
+    The express app will make use of these `SMOOCH_APP_TOKEN` and `SMOOCH_JWT` environment variables.
 
-4. This sample relies on webhooks so you'll need to make your app internet visible somehow. You can deploy the app somwhere such as [heroku](http://heroku.com), but for now it might be easier to run it locally and use a tunneling services such as [ngrok](https://ngrok.com/). You can run the app locally with gulp:
+1. This sample relies on webhooks so you'll need to make your app internet visible somehow. You can deploy the app somwhere such as [heroku](http://heroku.com), but for now it might be easier to run it locally and use a tunneling services such as [ngrok](https://ngrok.com/). You can run the app locally with gulp:
 
-```
-$ npm install -g gulp-cli
-$ gulp smooch
-```
+        $ npm install -g gulp-cli
+        $ gulp smooch
 
-5. Once your app is running and has an internet-visible URL, create a webhook points to it, like so. (be sure to replace `foo.ngrok.io` with your own host)
+1. Once your app is running and has an internet-visible URL, create a webhook points to it, like so. (be sure to replace `foo.ngrok.io` with your own host)
 
-```
-curl https://api.smooch.io/v1/webhooks \
-     -X POST \
-     -d '{"target": "http://foo.ngrok.io/webhook", "trigger": "message:appUser"}' \
-     -H "content-type: application/json" \
-     -H "authorization: Bearer $SMOOCH_JWT"
-```
+        curl https://api.smooch.io/v1/webhooks \
+             -X POST \
+             -d '{"target": "http://foo.ngrok.io/webhook", "trigger": "message:appUser"}' \
+             -H "content-type: application/json" \
+             -H "authorization: Bearer $SMOOCH_JWT"
 
-6. Start chatting!
+1. Start chatting!
 
 Note that for task synchronization this sample uses the `MemoryLock`, so it won't work properly if run cluster. To run it on a cluster, you can simply swap out the given `MemoryLock` implmentation with one that relies on redis instead.
