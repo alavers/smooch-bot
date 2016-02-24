@@ -1,12 +1,16 @@
 'use strict';
 
 const smoochBot = require('smooch-bot');
-const StateMachine = smoochBot.StateMachine;
 const MemoryStore = smoochBot.MemoryStore;
-const BotCore = smoochBot.BotCore;
+const Bot = smoochBot.Bot;
 const Script = smoochBot.Script;
+const StateMachine = smoochBot.StateMachine;
 
-class ConsoleBot extends BotCore {
+class ConsoleBot extends Bot {
+    constructor(options) {
+        super(options);
+    }
+
     say(text) {
         return new Promise((resolve) => {
             console.log(text);
@@ -34,7 +38,7 @@ const script = new Script({
     },
 
     finish: {
-        receive: (bot) => {
+        receive: (bot, message) => {
             return bot.getProp('name')
                 .then((name) => bot.say(`Sorry ${name}, my creator didn't ` +
                         'teach me how to do anything else!'))
@@ -45,7 +49,10 @@ const script = new Script({
 
 const userId = 'testUserId';
 const store = new MemoryStore();
-const bot = new ConsoleBot(store, userId);
+const bot = new ConsoleBot({
+    store,
+    userId
+});
 
 const stateMachine = new StateMachine({
     script,
@@ -55,7 +62,7 @@ const stateMachine = new StateMachine({
 
 process.stdin.on('data', function(data) {
     stateMachine.receiveMessage({
-        text: data.toString()
+        text: data.toString().trim()
     })
         .catch((err) => {
             console.error(err);

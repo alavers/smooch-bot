@@ -2,12 +2,26 @@
   "name": "smooch-bot",
   "version": "1.0.0",
   "description": "Build your own chat bot on top of smooch.io",
+  "author": "Andrew Lavers <alavers@system42.net>",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": ">=4.2.2",
+    "npm": ">=3.7.0"
   },
-  "author": "Andrew Lavers <alavers@system42.net> (http://smooch.io/)",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smooch/smooch-bot"
+  },
+  "bugs": {
+    "url": "https://github.com/smooch/smooch-bot/issues"
+  },
+  "keywords": [
+    "smooch",
+    "bot"
+  ],
+  "dependencies": {
+    "smooch-core": "0.0.15"
+  },
   "devDependencies": {
     "babel-eslint": "^5.0.0",
     "esformatter": "^0.9.1",
@@ -16,7 +30,5 @@
     "esformatter-quotes": "^1.0.3",
     "eslint": "^2.2.0"
   },
-  "dependencies": {
-    "smooch-core": "0.0.15"
-  }
+  "license": "MIT"
 }

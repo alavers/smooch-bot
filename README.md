@@ -1,27 +1,15 @@
 # Smooch Bot
 
-Build your own chat bot on top of smooch.io
+A simple generic chat bot with persisted conversation state and user properties. You can also run your bot on top of [smooch.io](http://smooch.io).
 
-1. Build your bot's chat script, eg:
+A bot consists of three core components:
 
-```
-const script = new Script({
-    askName: {
-        prompt: (bot) => bot.say('What\'s your name'),
-        receive: (bot, message) => {
-            const name = message.text.trim();
-            bot.setProp('name', name);
-            return bot.say(`I'll call you ${name}! Great!`)
-                .then(() => 'finish');
-        }
-    }
-});
-```
+1. `Bot`: The heart of your bot. Your `Bot` implements a `say()` method. The bot also needs to be provided with a store implementation for saving conversation state and user properties, as well as a lock implemntation for synchronizing tasks.
 
-2. Sign up for a free account at [smooch.io](http://app.smooch.io/signup) hook two channels together (eg hook up SMS to Slack)
+1. `Script`: The chat script. This defines what your bot will say and how it should respond to user input.
 
-3. Create a Smooch API Key and generate a JWT
+1. `StateMachine`: This is the engine that uses the `Bot` to guide a session from one `Script` step to the next.
 
-4. Create a Smooch webhook
+`SmoochApiBot` and `SmoochApiStore` allow you to run your chat bot on top of [smooch.io](http://smooch.io). That means you can run your bot over SMS, Web, iOS, Android, you name it! You can also hook your conversations up to back end channels such as Slack and HipChat so that a human jump in the conversation whenever you like.
 
-5. Deploy to Heroku
+This project comes equipped with a few sample implementations under `/examples`. Go check them out!
