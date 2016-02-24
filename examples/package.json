@@ -2,10 +2,6 @@
   "name": "examples",
   "version": "1.0.0",
   "description": "Smooch Bot examples",
-  "main": "main.js",
-  "scripts": {
-    "start": "node main.js"
-  },
   "author": "Andrew Lavers <alavers@system42.net> (http://smooch.io/)",
   "license": "MIT",
   "dependencies": {
@@ -13,8 +9,8 @@
     "express": "^4.13.4",
     "hbs": "^4.0.0",
     "jsonwebtoken": "^5.7.0",
-    "smooch-bot": "../",
-    "smooch-core": "0.0.15"
+    "smooch-bot": "^1.0.0",
+    "smooch-core": "^0.0.15"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
