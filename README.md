@@ -1,4 +1,4 @@
-# Smooch Bot
+# Smooch Bot[![Build Status](https://travis-ci.org/smooch/smooch-bot.svg?branch=master)](https://travis-ci.org/smooch/smooch-bot)
 
 A simple generic chat bot with persisted conversation state and user properties. You can also run your bot on top of [smooch.io](http://smooch.io).
 
