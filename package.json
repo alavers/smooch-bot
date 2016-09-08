@@ -1,6 +1,6 @@
 {
   "name": "smooch-bot",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Build your own chat bot on top of smooch.io",
   "author": "Andrew Lavers <alavers@system42.net>",
   "main": "index.js",
@@ -23,7 +23,7 @@
     "bot"
   ],
   "dependencies": {
-    "smooch-core": "1.2.0"
+    "smooch-core": "^2.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
