@@ -1,6 +1,12 @@
 # Smooch Bot[![Build Status](https://travis-ci.org/smooch/smooch-bot.svg?branch=master)](https://travis-ci.org/smooch/smooch-bot)
 
+http://blog.smooch.io/how-to-build-your-own-smooch-bot/
+
 A simple generic chat bot with persisted conversation state and user properties. You can also run your bot on top of [smooch.io](http://smooch.io).
+
+This framework is designed with the intent of giving you full control over how you want your bot to behave, and extensibliity allowing you to easily connect it to a variety of APIs and communication channels (Smooch or otherwise). This comes at the cost of features. Unlike many popular bot tools and services that are available today, smooch-bot assumes very little and therefore offers a reduced set of tools for you to use to build common bot scenarios. This framework gives you an asynchronous conversation state and user property persistence model to build off of, but the rest is up to you.
+
+This framework is also not to be confused with https://github.com/gozman/smoochbot, which is a Smooch connector for BotKit (howdyai/botkit).
 
 A bot consists of three core components:
 
