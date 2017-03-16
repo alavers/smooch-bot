@@ -23,7 +23,7 @@
     "bot"
   ],
   "dependencies": {
-    "smooch-core": "^2.0.0"
+    "smooch-core": "^3.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
